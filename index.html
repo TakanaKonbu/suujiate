@@ -1,72 +1,75 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>数当てゲーム</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数当てゲーム</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
 
-    h1 {
-      margin-top: 30px;
-    }
+        h1 {
+            margin-top: 30px;
+        }
 
-    input[type="number"] {
-      width: 100px;
-      margin-bottom: 10px;
-    }
+        input[type="number"] {
+            width: 100px;
+            margin-bottom: 10px;
+        }
 
-    button {
-      padding: 10px 20px;
-      cursor: pointer;
-    }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
 
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-  </style>
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>数当てゲーム</h1>
+    <h1>数当てゲーム</h1>
 
-  <p>1〜30の数字を入力してください。</p>
-  <input type="number" id="input-number">
-  <button id="submit-button">送信</button>
+    <p>1〜30の数字を入力してください。</p>
+    <input type="number" id="input-number">
+    <button id="submit-button">送信</button>
 
-  <div id="result"></div>
+    <div id="result"></div>
 
-  <script>
-    // 1〜30までのランダムな数字を生成
-const randomNumber = Math.floor(Math.random() * 30) + 1;
-console.log("正解の数字は", randomNumber); // 答えをコンソールに出力 (デバッグ用)
+    <script>
+        // 1〜30までのランダムな数字を生成
+        const randomNumber = Math.floor(Math.random() * 30) + 1;
+        console.log("正解の数字は", randomNumber); // 答えをコンソールに出力 (デバッグ用)
 
-// 正解回数を初期化
-let correctCount = 0;
+        // 正解回数を初期化
+        let correctCount = 0;
 
-// 入力エリアを取得
-const inputArea = document.getElementById("input-number");
+        // 入力エリアを取得
+        const inputArea = document.getElementById("input-number");
 
-// ボタンをクリックした時の処理
-document.getElementById("submit-button").addEventListener("click", function() {
-  const inputNumber = parseInt(inputArea.value);
+        // ボタンをクリックした時の処理
+        document.getElementById("submit-button").addEventListener("click", function () {
+            const inputNumber = parseInt(inputArea.value);
 
-  // ユーザーの入力した数字と正解の数字を比較
-  if (inputNumber === randomNumber) {
-    alert("正解です！" + " " + (correctCount + 1) + "回目で正解しました！");
-  } else if (inputNumber < randomNumber) {
-    alert("もっと大きい数字です！");
-  } else {
-    alert("もっと小さい数字です！");
-  }
+            // ユーザーの入力した数字と正解の数字を比較
+            if (inputNumber === randomNumber) {
+                alert("正解です！" + " " + (correctCount + 1) + "回目で正解しました！");
+            } else if (inputNumber < randomNumber) {
+                alert("もっと大きい数字です！");
+            } else {
+                alert("もっと小さい数字です！");
+            }
 
-  // 正解回数をカウントアップ
-  correctCount++;
-});
+            // 正解回数をカウントアップ
+            correctCount++;
+        });
 
-  </script>
+    </script>
 </body>
+
 </html>
